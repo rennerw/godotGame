@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://script/cano.gd" type="Script" id=1]
+[ext_resource path="res://assets/cano.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Node2D" type="Node2D"]
+
+script/script = ExtResource( 1 )
+vel = -5
+
+[node name="Cima" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, -1100 )
+transform/scale = Vector2( 3, 7 )
+texture = ExtResource( 2 )
+flip_v = true
+
+[node name="Baixo" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 1100 )
+transform/scale = Vector2( 3, 7 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 11.6967, 0, 0, 87.7491, 6.68063, -1268.29 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 1 )
+shapes/1/transform = Matrix32( 11.5242, 0, 0, 88.0458, -8.55728, 1301.12 )
+shapes/1/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( 6.68063, -1268.29 )
+transform/scale = Vector2( 11.6967, 87.7491 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( -8.55728, 1301.12 )
+transform/scale = Vector2( 11.5242, 88.0458 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 1
+
+
